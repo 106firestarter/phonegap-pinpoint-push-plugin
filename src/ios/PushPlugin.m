@@ -417,6 +417,10 @@
                                     [message setObject:messageValue forKey:@"message"];
                                 } else if ([messageKey isEqualToString:@"title"]) {
                                     [message setObject:messageValue forKey:@"title"];
+                                } else if ([messageKey isEqualToString:@"pinpoint.notification.body"]) {
+                                    [message setObject:messageValue forKey:@"message"];
+                                } else if ([messageKey isEqualToString:@"pinpoint.notification.title"]) {
+                                    [message setObject:messageValue forKey:@"title"];
                                 } else {
                                     [additionalData setObject:messageValue forKey:messageKey];
                                 }
@@ -432,6 +436,14 @@
                     } else if ([key isEqualToString:@"sound"]) {
                         [message setObject:value forKey:@"sound"];
                     } else if ([key isEqualToString:@"image"]) {
+                        [message setObject:value forKey:@"image"];
+                    }
+                    
+                    // testing if this is the right place
+                    
+                    else if ([key isEqualToString:@"pinpoint.notification.title"]) {
+                        [message setObject:value forKey:@"title"];
+                    } else if ([key isEqualToString:@"pinpoint.notification.imageUrl"]) {
                         [message setObject:value forKey:@"image"];
                     } else {
                         [additionalData setObject:value forKey:key];
