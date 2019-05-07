@@ -102,4 +102,14 @@ public interface PushConstants {
   public static final String ONGOING = "ongoing";
   public static final String LIST_CHANNELS = "listChannels";
   public static final String CLEAR_NOTIFICATION = "clearNotification";
+  public static final String PINPOINT_ACTION      = "pinpoint.openApp";
+  public static final String PINPOINT_TITLE       = "pinpoint.notification.title";
+  public static final String PINPOINT_BODY        = "pinpoint.notification.body";
+  public static final String PINPOINT_CAMPAIGN_ID = "pinpoint.campaign.campaign_id";
+  public static final String PINPOINT_TYPE        = "pinpoint.notification.silentPush";
+  public static final String PINPOINT_MD5         = "adm_message_md5";
+  public static final String PINPOINT_IMAGE       = "pinpoint.notification.imageUrl";
+  public static final String PINPOINT_URL         = "pinpoint.url";
+  public static final String PINPOINT_DEEPLINK    = "pinpoint.deeplink";
+  public static final String PINPOINT_IMAGE_ICON  = "pinpoint.notification.imageIconUrl";
 }

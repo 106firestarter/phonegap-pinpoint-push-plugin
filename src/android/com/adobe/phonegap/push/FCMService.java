@@ -195,15 +195,15 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
    */
   private String normalizeKey(String key, String messageKey, String titleKey, Bundle newExtras) {
     if (key.equals(BODY) || key.equals(ALERT) || key.equals(MP_MESSAGE) || key.equals(GCM_NOTIFICATION_BODY)
-        || key.equals(TWILIO_BODY) || key.equals(messageKey) || key.equals(AWS_PINPOINT_BODY)) {
+        || key.equals(TWILIO_BODY) || key.equals(messageKey) || key.equals(AWS_PINPOINT_BODY) || key.equals(PINPOINT_BODY)) {
       return MESSAGE;
-    } else if (key.equals(TWILIO_TITLE) || key.equals(SUBJECT) || key.equals(titleKey)) {
+    } else if (key.equals(TWILIO_TITLE) || key.equals(SUBJECT) || key.equals(titleKey) || key.equals(PINPOINT_TITLE)) {
       return TITLE;
     } else if (key.equals(MSGCNT) || key.equals(BADGE)) {
       return COUNT;
     } else if (key.equals(SOUNDNAME) || key.equals(TWILIO_SOUND)) {
       return SOUND;
-    } else if (key.equals(AWS_PINPOINT_PICTURE)) {
+    } else if (key.equals(AWS_PINPOINT_PICTURE) || key.equals(PINPOINT_IMAGE)) {
       newExtras.putString(STYLE, STYLE_PICTURE);
       return PICTURE;
     } else if (key.startsWith(GCM_NOTIFICATION)) {
