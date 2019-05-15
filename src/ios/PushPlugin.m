@@ -471,6 +471,7 @@
 
                             [message setObject:value forKey:@"image"];
                             [message setObject:value forKey:@"picture"];
+                            [message setObject:value forKey:@"launch-image"];
                         }
 
                         for(id key in message) {
