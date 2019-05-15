@@ -460,14 +460,24 @@
                     id data = [notificationMessage objectForKey:@"data"];
 
                     for(id key in data) {
-
                         id value = [data objectForKey:key];
+
                         NSLog(@"Push Plugin value: %@", value);
                         NSLog(@"Push Plugin key: %@", key);
 
                         if ([key isEqualToString:@"media-url"]) {
+                            NSLog(@"Push Plugin ENTROU value: %@", value);
+                            NSLog(@"Push Plugin ENTROU key: %@", key);
+
                             [message setObject:value forKey:@"image"];
                             [message setObject:value forKey:@"picture"];
+                        }
+
+                        for(id key in message) {
+                            id value = [message objectForKey:key];
+
+                            NSLog(@"Push Plugin MESSAGE VALUE: %@", value);
+                            NSLog(@"Push Plugin MESSAGE KEY: %@", key);
                         }
                     }
                 
