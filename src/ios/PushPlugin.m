@@ -462,14 +462,12 @@
                     for(id key in data) {
 
                         id value = [data objectForKey:key];
-                
                         NSLog(@"Push Plugin value: %@", value);
                         NSLog(@"Push Plugin key: %@", key);
 
-                        // if ([key isEqualToString:@"image"]) {
-                        //     [message setObject:value forKey:@"image"];
-                        // }
-
+                        if ([key isEqualToString:@"media-url"]) {
+                            [message setObject:value forKey:@"image"];
+                        }
                     }
                 
                 }
