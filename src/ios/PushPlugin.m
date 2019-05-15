@@ -467,12 +467,13 @@
 
                         if ([key isEqualToString:@"media-url"]) {
                             [message setObject:value forKey:@"image"];
+                            [message setObject:value forKey:@"picture"];
                         }
                     }
                 
                 }
 
-                [additionalData setObject:[notificationMessage objectForKey:key] forKey:key];
+                    [additionalData setObject:[notificationMessage objectForKey:key] forKey:key];
             }
         }
 
