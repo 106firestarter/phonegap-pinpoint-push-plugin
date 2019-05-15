@@ -402,6 +402,9 @@
 
 
         for (id key in notificationMessage) {
+
+            NSLog(@"Push Plugin KEY HERE: %@", key);
+
             if ([key isEqualToString:@"aps"]) {
                 id aps = [notificationMessage objectForKey:@"aps"];
 
@@ -416,7 +419,7 @@
 
                                 NSLog(@"Push Plugin messageKey: %@", messageKey);
                                 NSLog(@"Push Plugin messageValue: %@", messageValue);
-                                
+
                                 if ([messageKey isEqualToString:@"body"]) {
                                     [message setObject:messageValue forKey:@"message"];
                                 } else if ([messageKey isEqualToString:@"title"]) {
