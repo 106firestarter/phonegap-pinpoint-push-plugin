@@ -403,8 +403,6 @@
 
         for (id key in notificationMessage) {
 
-            NSLog(@"Push Plugin KEY HERE: %@", key);
-
             if ([key isEqualToString:@"aps"]) {
                 id aps = [notificationMessage objectForKey:@"aps"];
 
@@ -457,6 +455,25 @@
                     }
                 }
             } else {
+                if ([key isEqualToString:@"data"]) {
+
+                    id data = [notificationMessage objectForKey:@"data"];
+
+                    for(id key in data) {
+
+                        id value = [data objectForKey:key];
+                
+                        NSLog(@"Push Plugin value: %@", value);
+                        NSLog(@"Push Plugin key: %@", key);
+
+                        // if ([key isEqualToString:@"image"]) {
+                        //     [message setObject:value forKey:@"image"];
+                        // }
+
+                    }
+                
+                }
+
                 [additionalData setObject:[notificationMessage objectForKey:key] forKey:key];
             }
         }
