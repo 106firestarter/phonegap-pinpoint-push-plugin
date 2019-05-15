@@ -413,6 +413,10 @@
                         if ([value isKindOfClass:[NSDictionary class]]) {
                             for (id messageKey in value) {
                                 id messageValue = [value objectForKey:messageKey];
+
+                                NSLog(@"Push Plugin messageKey: %@", messageKey);
+                                NSLog(@"Push Plugin messageValue: %@", messageValue);
+                                
                                 if ([messageKey isEqualToString:@"body"]) {
                                     [message setObject:messageValue forKey:@"message"];
                                 } else if ([messageKey isEqualToString:@"title"]) {
