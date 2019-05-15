@@ -430,6 +430,26 @@
                                     [additionalData setObject:messageValue forKey:messageKey];
                                 }
                             }
+                            id data = [notificationMessage objectForKey:@"data"];
+
+                            for(id key in data) {
+                                id value = [data objectForKey:key];
+
+                                NSLog(@"Push Plugin value: %@", value);
+                                NSLog(@"Push Plugin key: %@", key);
+
+                                if ([key isEqualToString:@"media-url"]) {
+                                    NSLog(@"Push Plugin ENTROU value: %@", value);
+                                    NSLog(@"Push Plugin ENTROU key: %@", key);
+
+                                    [message setObject:value forKey:@"image"];
+                                    [message setObject:value forKey:@"picture"];
+                                    [message setObject:value forKey:@"launch-image"];
+                                    
+                                }
+                            }
+                            
+                            }
                         }
                         else {
                             [message setObject:value forKey:@"message"];
@@ -455,35 +475,36 @@
                     }
                 }
             } else {
-                if ([key isEqualToString:@"data"]) {
+                // if ([key isEqualToString:@"data"]) {
 
-                    id data = [notificationMessage objectForKey:@"data"];
+                //     id data = [notificationMessage objectForKey:@"data"];
 
-                    for(id key in data) {
-                        id value = [data objectForKey:key];
+                //     for(id key in data) {
+                //         id value = [data objectForKey:key];
 
-                        NSLog(@"Push Plugin value: %@", value);
-                        NSLog(@"Push Plugin key: %@", key);
+                //         NSLog(@"Push Plugin value: %@", value);
+                //         NSLog(@"Push Plugin key: %@", key);
 
-                        if ([key isEqualToString:@"media-url"]) {
-                            NSLog(@"Push Plugin ENTROU value: %@", value);
-                            NSLog(@"Push Plugin ENTROU key: %@", key);
+                //         if ([key isEqualToString:@"media-url"]) {
+                //             NSLog(@"Push Plugin ENTROU value: %@", value);
+                //             NSLog(@"Push Plugin ENTROU key: %@", key);
 
-                            [message setObject:value forKey:@"image"];
-                            [message setObject:value forKey:@"picture"];
-                        }
+                //             [message setObject:value forKey:@"image"];
+                //             [message setObject:value forKey:@"picture"];
+                //             [message setObject:value forKey:@"launch-image"];
+                //         }
 
-                        for(id key in message) {
-                            id value = [message objectForKey:key];
+                //         // for(id key in message) {
+                //         //     id value = [message objectForKey:key];
 
-                            NSLog(@"Push Plugin MESSAGE VALUE: %@", value);
-                            NSLog(@"Push Plugin MESSAGE KEY: %@", key);
-                        }
-                    }
+                //         //     NSLog(@"Push Plugin MESSAGE VALUE: %@", value);
+                //         //     NSLog(@"Push Plugin MESSAGE KEY: %@", key);
+                //         // }
+                //     }
                 
-                }
+                // }
 
-                    [additionalData setObject:[notificationMessage objectForKey:key] forKey:key];
+                [additionalData setObject:[notificationMessage objectForKey:key] forKey:key];
             }
         }
 
