@@ -420,7 +420,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     mBuilder.setWhen(System.currentTimeMillis()).setContentTitle(fromHtml(extras.getString(TITLE)))
         .setTicker(fromHtml(extras.getString(TITLE))).setContentIntent(contentIntent).setDeleteIntent(deleteIntent)
         .setAutoCancel(true)
-        .setPriority(NotificationCompat.PRIORITY_MAX);
+        .setPriority(2);
 
     SharedPreferences prefs = context.getSharedPreferences(PushPlugin.COM_ADOBE_PHONEGAP_PUSH, Context.MODE_PRIVATE);
     String localIcon = prefs.getString(ICON, null);
@@ -668,7 +668,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       mBuilder.setContentText(fromHtml(message));
       
       // TODO REVIEW
-      mBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
+      mBuilder.setPriority(2);
 
       ArrayList<String> messageList = messageMap.get(notId);
       Integer sizeList = messageList.size();
@@ -707,6 +707,8 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       mBuilder.setContentText(fromHtml(message));
 
       mBuilder.setStyle(bigPicture);
+      // TODO REVIEW
+      mBuilder.setPriority(2);
     } else {
       setNotification(notId, "");
 
@@ -724,6 +726,8 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
         }
 
         mBuilder.setStyle(bigText);
+        // TODO REVIEW
+        mBuilder.setPriority(2);
       }
       /*
       else {
@@ -779,7 +783,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
           // mBuilder.setPriority(priority);
       
           // TODO REVIEW
-          mBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
+          mBuilder.setPriority(2);
         } else {
           Log.e(LOG_TAG, "Priority parameter must be between -2 and 2");
         }
