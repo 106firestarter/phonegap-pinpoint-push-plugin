@@ -416,9 +416,11 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       mBuilder = new NotificationCompat.Builder(context);
     }
 
+    // TODO REVIEW
     mBuilder.setWhen(System.currentTimeMillis()).setContentTitle(fromHtml(extras.getString(TITLE)))
         .setTicker(fromHtml(extras.getString(TITLE))).setContentIntent(contentIntent).setDeleteIntent(deleteIntent)
-        .setAutoCancel(true);
+        .setAutoCancel(true)
+        .setPriority(NotificationCompat.PRIORITY_MAX);
 
     SharedPreferences prefs = context.getSharedPreferences(PushPlugin.COM_ADOBE_PHONEGAP_PUSH, Context.MODE_PRIVATE);
     String localIcon = prefs.getString(ICON, null);
@@ -664,6 +666,9 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       setNotification(notId, message);
 
       mBuilder.setContentText(fromHtml(message));
+      
+      // TODO REVIEW
+      mBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
 
       ArrayList<String> messageList = messageMap.get(notId);
       Integer sizeList = messageList.size();
@@ -771,7 +776,10 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       try {
         Integer priority = Integer.parseInt(priorityStr);
         if (priority >= NotificationCompat.PRIORITY_MIN && priority <= NotificationCompat.PRIORITY_MAX) {
-          mBuilder.setPriority(priority);
+          // mBuilder.setPriority(priority);
+      
+          // TODO REVIEW
+          mBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
         } else {
           Log.e(LOG_TAG, "Priority parameter must be between -2 and 2");
         }
